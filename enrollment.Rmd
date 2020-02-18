@@ -1,0 +1,29 @@
+---
+title: "enrollment"
+author: "Austin Li"
+date: "2/18/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(janitor)
+```
+
+```{r}
+x <- read_excel("class_enrollment_summary_by_term2.18.20.xlsx", skip=3) %>%
+  clean_names() %>% filter(! is.na(course_name))
+
+topdep <- x %>%
+  group_by(course_department) %>%
+  summarize(sum = sum(total)) %>%
+  arrange(desc(sum)) %>%
+  slice(1:5)
+
+topclass <- x %>%
+  filter()
+```
+
+
