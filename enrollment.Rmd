@@ -23,7 +23,7 @@ topdep <- x %>%
   slice(1:5)
 
 topclass <- x %>%
-  filter()
+  filter(course_department == "General Education" | course_department == "Economics" | course_department == "Computer Science" | course_department == "Mathematics" | course_department == "Government") 
 ```
 
 
